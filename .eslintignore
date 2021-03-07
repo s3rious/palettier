@@ -1,0 +1,9 @@
+# Modules
+node_modules
+
+# Build
+/lib
+/out
+
+# Coverage
+/coverage
