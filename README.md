@@ -131,4 +131,4 @@ You can write custom transformer function.
 
 Function should take `tokens` object as their first argument, the rest of the arguments is a transformer options. 
 
-For an example you can look into [`example/palettier.config.js`](https://github.com/s3rious/palettier/blob/main/example/palettier.config.json)
+For an example you can look into [`example/palettier.config.js`](https://github.com/s3rious/palettier/blob/main/example/palettier.config.js)
