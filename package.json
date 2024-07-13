@@ -29,15 +29,11 @@
 		"@biomejs/biome": "1.8.3",
 		"@types/node": "^20.14.10",
 		"npm-upgrade": "3.1.0",
-		"tinycolor2": "^1.6.0",
 		"typescript": "^5.5.3"
 	},
 	"dependencies": {
 		"mkdirp": "^3.0.1",
 		"ts-command-line-args": "^2.5.1"
-	},
-	"peerDependencies": {
-		"tinycolor2": "^1.4.2"
 	},
 	"scripts": {
 		"build": "tsc",
