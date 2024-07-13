@@ -1,1 +1,1 @@
-type JsonTokens = string
+type JsonTokens = string;

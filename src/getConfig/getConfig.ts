@@ -1,31 +1,45 @@
-import { Path } from './type'
-import { getArguments, isConfigArguments, isInlineArguments } from './getArguments'
+import {
+  getArguments,
+  isConfigArguments,
+  isInlineArguments,
+} from "./getArguments.js";
+
+import { Path } from "./type/Path.js";
 
 const defaultConfig = {
   verbose: false,
-  dist: Path('.'),
-  transform: [
-    ['json', 'palette.json']
-  ]
-}
+  dist: Path("."),
+  transform: [["json", "palette.json"]],
+};
 
-async function getConfig (): Promise<Config | Error> {
-  const args = getArguments()
+async function getConfig(): Promise<Config | Error> {
+  const args = getArguments();
 
   if (isInlineArguments(args)) {
-    return Object.assign({}, defaultConfig, args)
+    return Object.assign({}, defaultConfig, args);
   }
 
   if (isConfigArguments(args)) {
-    const config: Config = await import(args.config)
+    const importedConfigRaw: { default: Config } = await import(args.config, {
+      assert: {
+        type: "json",
+      },
+    });
+    const importedConfig = importedConfigRaw.default;
 
-    config.src = Path(config.src)
-    config.dist = Path(config.dist)
+    const config = {
+      ...defaultConfig,
+      ...importedConfig,
+      src: Path(importedConfig.src) ?? importedConfig.src,
+      dist: importedConfig.dist
+        ? Path(importedConfig.dist) ?? importedConfig.dist
+        : defaultConfig.dist,
+    };
 
-    return Object.assign({}, defaultConfig, config)
+    return config;
   }
 
-  return new Error('No config passed')
+  return new Error("No config passed");
 }
 
-export { getConfig }
+export { getConfig };

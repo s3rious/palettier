@@ -1,3 +1,8 @@
-interface Tokens { [key: string]: string | Tokens }
+interface Tokens {
+	[key: string]: string | Tokens;
+}
 
-type TransformerFunction = <Options extends string[], Result extends string>(tokens: Tokens, ...options: Options) => Result
+type TransformerFunction = <Options extends string[], Result extends string>(
+	tokens: Tokens,
+	...options: Options
+) => Result;

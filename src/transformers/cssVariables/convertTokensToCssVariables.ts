@@ -1,14 +1,15 @@
-import { curry, pipe } from 'rambda'
-import { recursivelyGenerateEntries } from './recursivelyGenerateEntries'
-import { prefixWithDashes } from './prefixWithDashes'
-import { generateCssFile } from './generateCssFile'
+import { generateCssFile } from "./generateCssFile.js";
+import { prefixWithDashes } from "./prefixWithDashes.js";
+import { recursivelyGenerateEntries } from "./recursivelyGenerateEntries.js";
 
-function convertTokensToCssVariables (tokens: Tokens, className?: ClassName): CssFile {
-  return pipe<Tokens, Entries, Entries, CssFile>(
-    recursivelyGenerateEntries,
-    prefixWithDashes,
-    curry(generateCssFile)(className)
-  )(tokens)
+function convertTokensToCssVariables(
+	tokens: Tokens,
+	className?: ClassName,
+): CssFile {
+	const entries = recursivelyGenerateEntries(tokens);
+	const entriesWithDashes = prefixWithDashes(entries);
+
+	return generateCssFile(className, entriesWithDashes);
 }
 
-export { convertTokensToCssVariables }
+export { convertTokensToCssVariables };

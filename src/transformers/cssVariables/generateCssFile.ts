@@ -1,13 +1,18 @@
-function generateCssFile (className: ClassName = ':root', entries: Entries = []): CssFile {
-  const content = entries.reduce((accumulator, [key, value]) => {
-    return `${accumulator}\n  ${key}: ${value};`
-  }, '')
+function generateCssFile(
+	className: ClassName = ":root",
+	entries: Entries = [],
+): CssFile {
+	let resultClassName = className;
 
-  if (/^\w/.test(className)) {
-    className = `.${className}`
-  }
+	if (/^\w/.test(resultClassName)) {
+		resultClassName = `.${resultClassName}`;
+	}
 
-  return `${className} {${content}\n}`
+	const content = entries.reduce((accumulator, [key, value]) => {
+		return `${accumulator}\n  ${key}: ${value};`;
+	}, "");
+
+	return `${className} {${content}\n}`;
 }
 
-export { generateCssFile }
+export { generateCssFile };

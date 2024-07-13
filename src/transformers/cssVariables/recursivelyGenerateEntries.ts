@@ -1,25 +1,32 @@
-import { pipe } from 'rambda'
+import { isTokens } from "../../helpers/isTokens.js";
 
-import { isTokens } from '../../helpers'
+import { camelToKebab } from "./camelToKebab.js";
 
-import { camelToKebab } from './camelToKebab'
+const recursivelyGenerateEntries = (
+	tokens: Tokens,
+	parentKey?: string,
+): Entries => {
+	const entries = Object.entries(tokens);
 
-const recursivelyGenerateEntries = (tokens: Tokens, parentKey?: string): Entries => {
-  return pipe<Tokens, Array<[string, (string | Tokens)]>, Entries>(
-    Object.entries,
-  (tokenEntries) => tokenEntries.reduce((accumulator: Entries, [key, value]: [string, string | Tokens]): Entries => {
-    const flatKey = camelToKebab((parentKey != null) ? `${parentKey}-${key}` : key)
+	return entries.reduce(
+		(
+			accumulator: Entries,
+			[key, value]: [string, string | Tokens],
+		): Entries => {
+			const flatKey = camelToKebab(
+				parentKey != null ? `${parentKey}-${key}` : key,
+			);
 
-    if (isTokens(value)) {
-      return [
-        ...accumulator,
-        ...recursivelyGenerateEntries(value, flatKey)
-      ]
-    }
+			if (isTokens(value)) {
+				accumulator.push(...recursivelyGenerateEntries(value, flatKey));
+				return accumulator;
+			}
 
-    return [...accumulator, [flatKey, value]]
-  }, [])
-  )(tokens)
-}
+			accumulator.push([flatKey, value]);
+			return accumulator;
+		},
+		[],
+	);
+};
 
-export { recursivelyGenerateEntries }
+export { recursivelyGenerateEntries };

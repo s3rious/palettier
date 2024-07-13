@@ -1,7 +1,7 @@
-import { resolve } from 'path'
+import { resolve } from "node:path";
 
-function Path (string: string): string {
-  return resolve(process.cwd(), string)
+function Path(string = ""): string {
+  return resolve(process.cwd(), string);
 }
 
-export { Path }
+export { Path };

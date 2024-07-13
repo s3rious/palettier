@@ -1,9 +1,9 @@
-import { transformers } from '../transformers'
+import { transformers } from "../transformers/transformers.js";
 
-type TransformersKey = keyof typeof transformers
+type TransformersKey = keyof typeof transformers;
 
-function isTransformersKey (argument: any): argument is TransformersKey {
-  return Object.keys(transformers).includes(argument)
+function isTransformersKey(argument: string): argument is TransformersKey {
+	return Object.keys(transformers).includes(argument);
 }
 
-export { isTransformersKey }
+export { isTransformersKey };
