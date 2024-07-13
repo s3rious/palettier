@@ -4,9 +4,9 @@ type Transform = [
 	...options: string[],
 ];
 
-interface Config {
-	verbose: boolean;
+interface Config extends Record<string, unknown> {
 	src: string;
 	dist: string;
 	transform: Transform[];
+	verbose: boolean;
 }

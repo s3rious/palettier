@@ -1,18 +1,18 @@
-function customJsonTransformer (tokens, rootObjectKey, childObjectKey) {
-  return JSON.stringify(
-    {
-      [rootObjectKey]: {
-        [childObjectKey]: tokens
-      }
-    },
-    null,
-    4
-  )
+function customJsonTransformer(tokens, rootObjectKey, childObjectKey) {
+	return JSON.stringify(
+		{
+			[rootObjectKey]: {
+				[childObjectKey]: tokens,
+			},
+		},
+		null,
+		4,
+	);
 }
 
-module.exports = {
-  src: 'example/tokens/index.js',
-  dist: 'example/out/',
-  transform: [[customJsonTransformer, 'palette-custom.json', 'root', 'child']],
-  verbose: true
-}
+export default {
+	src: "./tokens/index.js",
+	dist: "./out/",
+	transform: [[customJsonTransformer, "palette-custom.json", "root", "child"]],
+	verbose: true,
+};

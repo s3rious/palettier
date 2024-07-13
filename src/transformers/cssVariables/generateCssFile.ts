@@ -4,7 +4,7 @@ function generateCssFile(
 ): CssFile {
 	let resultClassName = className;
 
-	if (/^\w/.test(resultClassName)) {
+	if (!/^:/.test(resultClassName)) {
 		resultClassName = `.${resultClassName}`;
 	}
 
@@ -12,7 +12,7 @@ function generateCssFile(
 		return `${accumulator}\n  ${key}: ${value};`;
 	}, "");
 
-	return `${className} {${content}\n}`;
+	return `${resultClassName} {${content}\n}`;
 }
 
 export { generateCssFile };

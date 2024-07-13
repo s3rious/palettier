@@ -7,29 +7,32 @@ import { getTokens } from "./getTokens/getTokens.js";
 import { isTransformersKey } from "./helpers/isTransformerKey.js";
 import { transformers } from "./transformers/transformers.js";
 
-const config = await getConfig();
+const configOrError = await getConfig();
 
-if (config instanceof Error) {
-	console.error(config);
+if (configOrError instanceof Error) {
+	console.error(configOrError);
 	process.exit(1);
 }
 
-if (config.verbose) {
-	console.log("Config is:", config, "\n");
-}
+const config = configOrError;
 
+if (config.verbose) {
+	console.log(`Config is:\n${JSON.stringify(config, null, 2)}\n`);
+}
 if (config.verbose) {
 	console.log("Getting tokens...");
 }
 const tokens = await getTokens(config.src);
 if (config.verbose) {
-	console.log("Tokens is:", tokens, "\n");
+	console.log(`Tokens is:\n${JSON.stringify(tokens, null, 2)}\n`);
 }
 
 if (config.transform.length > 0) {
 	if (config.verbose) {
 		console.log(`Creating dist directory: ${config.dist}...`);
-		await mkdirp(config.dist);
+	}
+	await mkdirp(config.dist);
+	if (config.verbose) {
 		console.log("... created!", "\n");
 	}
 }
@@ -62,7 +65,7 @@ for (const transform of config.transform) {
 	const content = transformerFunction(tokens, ...options);
 
 	if (config.verbose) {
-		console.log("... content is:", content);
+		console.log(`... content is:\n${content}`);
 	}
 
 	const filePath = path.resolve(config.dist, fileName);

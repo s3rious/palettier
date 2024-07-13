@@ -1,7 +1,9 @@
-const color = require('./color/')
-const shadow = require('./shadow/')
+import { color } from "./color/index.js";
+import { shadow } from "./shadow/index.js";
 
-module.exports = {
-  color,
-  shadow
-}
+const tokens = {
+	color,
+	shadow,
+};
+
+export default tokens;

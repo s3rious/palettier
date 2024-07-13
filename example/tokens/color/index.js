@@ -1,7 +1,9 @@
-const background = require('./background')
-const typography = require('./typography')
+import background from "./background.js";
+import typography from "./typography.js";
 
-module.exports = {
-  background,
-  typography
-}
+const color = {
+	background,
+	typography,
+};
+
+export { color };

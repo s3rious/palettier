@@ -1,5 +1,7 @@
-const elevation = require('./elevation')
+import elevation from "./elevation.js";
 
-module.exports = {
-  elevation
-}
+const shadow = {
+	elevation,
+};
+
+export { shadow };
