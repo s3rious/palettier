@@ -33,7 +33,7 @@ if (config.transform.length > 0) {
 	}
 	await mkdirp(config.dist);
 	if (config.verbose) {
-		console.log("... created!", "\n");
+		console.log("... created!\n");
 	}
 }
 
@@ -77,7 +77,7 @@ for (const transform of config.transform) {
 	await fs.writeFile(filePath, content, "utf-8");
 
 	if (config.verbose) {
-		console.log("... written!", "\n");
+		console.log("... written!\n");
 	}
 }
 

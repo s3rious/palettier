@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+
 import {
 	getArguments,
 	isConfigArguments,
@@ -87,14 +89,11 @@ async function importConfig(path: string): Promise<Partial<Config> | Error> {
 		}
 
 		if (/.json$/.test(path)) {
-			const jsonConfig: { default: unknown } = await import(path, {
-				assert: {
-					type: "json",
-				},
-			});
+			const jsonString = await readFile(path, "utf8");
+			const jsonConfig = JSON.parse(jsonString);
 
-			if (isPartialConfig(jsonConfig.default)) {
-				return jsonConfig.default;
+			if (isPartialConfig(jsonConfig)) {
+				return jsonConfig;
 			}
 
 			throw new Error("Invalid config passed as json");
