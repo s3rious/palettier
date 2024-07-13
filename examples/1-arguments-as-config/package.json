@@ -1,0 +1,15 @@
+{
+	"name": "palettier/arguments-as-config",
+	"version": "1.0.0",
+	"author": "s3rious a.k.a Leonid Semenov <canismajor@kaschenka.ru>",
+	"license": "MIT",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"palettier": "palettier --src ./tokens/index.js --dist ./out/ --transform json:palette.json --transform cssVariables:Palette.module.css"
+	},
+	"devDependencies": {
+		"palettier": "file:../../",
+		"tinycolor2": "^1.6.0"
+	}
+}
