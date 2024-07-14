@@ -1,7 +1,7 @@
 import elevation from "./elevation.js";
 
 const shadow = {
-	elevation,
+  elevation,
 };
 
 export { shadow };

@@ -1,9 +1,9 @@
 import { convertTokensToCssVariables as cssVariables } from "./cssVariables/convertTokensToCssVariables.js";
 import { convertTokensToJson as json } from "./json/convertTokensToJson.js";
 
-const transformers = {
-	json,
-	cssVariables,
+const builtInTransforms = {
+  json,
+  cssVariables,
 };
 
-export { transformers };
+export { builtInTransforms };

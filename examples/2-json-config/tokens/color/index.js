@@ -2,8 +2,8 @@ import background from "./background.js";
 import typography from "./typography.js";
 
 const color = {
-	background,
-	typography,
+  background,
+  typography,
 };
 
 export { color };

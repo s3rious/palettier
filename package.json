@@ -1,56 +1,56 @@
 {
-	"name": "palettier",
-	"version": "1.0.0",
-	"type": "module",
-	"author": "s3rious a.k.a Leonid Semenov <canismajor@kaschenka.ru>",
-	"license": "MIT",
-	"description": "Generate css variables and json from js",
-	"homepage": "https://github.com/s3rious/palettier#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/s3rious/palettier.git"
-	},
-	"bugs": {
-		"url": "https://github.com/s3rious/palettier/issues"
-	},
-	"keywords": [
-		"generator",
-		"generate",
-		"stylesheet",
-		"custom properties",
-		"declarations",
-		"css",
-		"css variables",
-		"variables",
-		"palette",
-		"json"
-	],
-	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@types/node": "^20.14.10",
-		"npm-upgrade": "3.1.0",
-		"typescript": "^5.5.3"
-	},
-	"dependencies": {
-		"mkdirp": "^3.0.1",
-		"ts-command-line-args": "^2.5.1"
-	},
-	"scripts": {
-		"build": "tsc",
-		"dev": "tsc --watch",
-		"lint": "npx @biomejs/biome check --write",
-		"upgrade": "npx npm-upgrade -pdo",
-		"test": "echo 'It'll be later'",
-		"prepare": "npm run build",
-		"prepublishOnly": "npm run lint",
-		"preversion": "npm run lint",
-		"version": "git add -A src",
-		"postversion": "git push && git push --tags"
-	},
-	"main": "./lib/index.js",
-	"types": "./lib/index.d.ts",
-	"bin": {
-		"palettier": "./bin/palettier"
-	},
-	"files": ["bin/**/*", "lib/**/*"]
+  "name": "palettier",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "s3rious a.k.a Leonid Semenov <canismajor@kaschenka.ru>",
+  "license": "MIT",
+  "description": "Generate css variables and json from js",
+  "homepage": "https://github.com/s3rious/palettier#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s3rious/palettier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/s3rious/palettier/issues"
+  },
+  "keywords": [
+    "generator",
+    "generate",
+    "stylesheet",
+    "custom properties",
+    "declarations",
+    "css",
+    "css variables",
+    "variables",
+    "palette",
+    "json"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@types/node": "^20.14.10",
+    "npm-upgrade": "3.1.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "mkdirp": "^3.0.1",
+    "ts-command-line-args": "^2.5.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "npx @biomejs/biome check --write",
+    "upgrade": "npx npm-upgrade -pdo",
+    "test": "echo 'It'll be later'",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "bin": {
+    "palettier": "./bin/palettier"
+  },
+  "files": ["bin/**/*", "lib/**/*"]
 }

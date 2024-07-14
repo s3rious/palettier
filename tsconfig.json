@@ -1,15 +1,15 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"target": "ES2022",
-		"lib": ["ES2022"],
-		"esModuleInterop": true,
-		"module": "NodeNext",
-		"moduleResolution": "NodeNext",
-		"declaration": true,
-		"outDir": "./lib",
-		"baseUrl": "./src"
-	},
-	"include": ["src"],
-	"exclude": ["node_modules", "**/*.test.ts"]
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declaration": true,
+    "outDir": "./lib",
+    "baseUrl": "./src"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

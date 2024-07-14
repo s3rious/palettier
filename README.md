@@ -106,7 +106,7 @@ palettier --config example/palettier.config.json
 Regardless of configuration method the arguments are:
 * `src` path relative to launch folder aimed to palette source file
 * `dist` path relative to launch folder aimed to destination folder
-* `transform` array of transformers
+* `transform` array of builtInTransformers
 * `verbose` boolean, when `true` `palettier` will verbosely write to terminal what it's doing step-by-step
 
 ## Transformers
@@ -125,7 +125,7 @@ Generates a `.json` of the result. Has no arguments
 
 Generates a `.css` file with css variables. Has one argument, a `className` if empty will be `:root`
 
-### Custom transformers
+### Custom builtInTransformers
 
 You can write custom transformer function. 
 
