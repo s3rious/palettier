@@ -8,24 +8,10 @@ import { importConfigFromFile } from "./importConfigFromFile.js";
 import { type Config, isConfig, isPartialConfig } from "./isConfig.js";
 
 async function getConfig(): Promise<Config | Error> {
-  const args = getCliArguments();
+  let args = getCliArguments();
 
-  if (isInlineArguments(args)) {
-    try {
-      if (!isPartialConfig(args)) {
-        throw new Error(`${args} is not valid config`);
-      }
-
-      const config = Object.assign(defaultArguments, args);
-
-      if (!isConfig(config)) {
-        throw new Error("Not all config fields passed");
-      }
-
-      return config;
-    } catch (error) {
-      throw new Error("Failed to get config from arguments", { cause: error });
-    }
+  if (Object.keys(args).length < 1) {
+    args = defaultArguments;
   }
 
   if (isConfigArguments(args)) {
@@ -45,6 +31,24 @@ async function getConfig(): Promise<Config | Error> {
       return config;
     } catch (error) {
       throw new Error("Failed to get config from file", { cause: error });
+    }
+  }
+
+  if (isInlineArguments(args)) {
+    try {
+      if (!isPartialConfig(args)) {
+        throw new Error(`${args} is not valid config`);
+      }
+
+      const config = Object.assign(defaultArguments, args);
+
+      if (!isConfig(config)) {
+        throw new Error("Not all config fields passed");
+      }
+
+      return config;
+    } catch (error) {
+      throw new Error("Failed to get config from arguments", { cause: error });
     }
   }
 

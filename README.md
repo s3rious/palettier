@@ -66,7 +66,7 @@ Add it as an npm script to you `package.json`:
     <...>
       "palettier:generate": "palettier --config palettier.config.json"
     },
-  <...> 
+  <...>
 }
 ```
 
@@ -81,7 +81,7 @@ You can configure `palettier` two ways.
 
 Via command line arguments:
 ```bash
-palettier --src example/tokens/index.js --dist example/out/ --transform json:palette.json --transform cssVariables:Palette.module.css:Palette --verbose
+palettier --src example/tokens/index.js --dist example/out/ --transform json:palette.json --transform cssVariables:palette.module.css:Palette --verbose
 ```
 
 Or via config file (must be `.json` or `.js`):
@@ -97,7 +97,7 @@ palettier --config example/palettier.config.json
   "dist": "example/out/",
   "transform": [
     ["json", "palette.json"],
-    ["cssVariables", "Palette.module.css", "Palette"]
+    ["cssVariables", "palette.module.css", "Palette"]
   ],
   "verbose": true
 }
@@ -127,8 +127,8 @@ Generates a `.css` file with css variables. Has one argument, a `className` if e
 
 ### Custom builtInTransformers
 
-You can write custom transformer function. 
+You can write custom transformer function.
 
-Function should take `tokens` object as their first argument, the rest of the arguments is a transformer options. 
+Function should take `tokens` object as their first argument, the rest of the arguments is a transformer options.
 
 For an example you can look into [`example/palettier.config.js`](https://github.com/s3rious/palettier/blob/main/example/palettier.config.js)

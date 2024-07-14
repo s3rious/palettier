@@ -1,0 +1,11 @@
+{
+  "name": "palettier/basic-defaults",
+  "version": "1.0.0",
+  "author": "s3rious a.k.a Leonid Semenov <canismajor@kaschenka.ru>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "palettier": "npx palettier"
+  }
+}

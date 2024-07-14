@@ -1,0 +1,14 @@
+{
+  "name": "palettier/common-js-entry",
+  "version": "1.0.0",
+  "author": "s3rious a.k.a Leonid Semenov <canismajor@kaschenka.ru>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "palettier": "palettier --config palettier.config.json"
+  },
+  "devDependencies": {
+    "palettier": "file:../../",
+    "tinycolor2": "^1.6.0"
+  }
+}

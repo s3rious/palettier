@@ -1,0 +1,9 @@
+{
+  "src": "./tokens/index.js",
+  "dist": "./out/",
+  "transform": [
+    ["json", "palette.json"],
+    ["cssVariables", "palette.module.css", "Palette"]
+  ],
+  "verbose": true
+}
