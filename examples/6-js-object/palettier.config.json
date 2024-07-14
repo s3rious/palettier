@@ -1,0 +1,10 @@
+{
+  "src": "./tokens/index.js",
+  "dist": "./out/",
+  "transform": [
+    ["jsObject", "palette.named.js", "named"],
+    ["jsObject", "palette.default.js", "default"],
+    ["jsObject", "palette.commonjs.cjs", "commonjs"]
+  ],
+  "verbose": true
+}
