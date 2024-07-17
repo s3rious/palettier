@@ -1,5 +1,6 @@
 # Palettier
 
+[![CI](https://github.com/s3rious/palettier/actions/workflows/run-tests-on-push.yml/badge.svg)](https://github.com/s3rious/palettier/actions/workflows/run-tests-on-push.yml)
 [![npm version](https://badge.fury.io/js/palettier.svg)](https://badge.fury.io/js/palettier)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
