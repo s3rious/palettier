@@ -1,5 +1,5 @@
 interface Tokens {
-  [key: string]: string | number | boolean;
+  [key: string]: string | number | boolean | Tokens;
 }
 
 function isTokens(argument: unknown): argument is Tokens {

@@ -20,11 +20,7 @@ function isPartialConfig(config: unknown): config is Partial<Config> {
     return false;
   }
 
-  if (typeof config.dist !== "string") {
-    return false;
-  }
-
-  return true;
+  return typeof config.dist === "string";
 }
 
 function isConfig(config: unknown): config is Config {
@@ -32,15 +28,13 @@ function isConfig(config: unknown): config is Config {
     return false;
   }
 
-  if (!isTransform(config.transform)) {
+  if (
+    !(Array.isArray(config.transform) && config.transform.every(isTransform))
+  ) {
     return false;
   }
 
-  if (typeof config.verbose !== "boolean") {
-    return false;
-  }
-
-  return true;
+  return typeof config.verbose === "boolean";
 }
 
 export type { Config };
