@@ -37,7 +37,7 @@ async function getConfig(): Promise<Config | Error> {
   if (isInlineArguments(args)) {
     try {
       if (!isPartialConfig(args)) {
-        throw new Error(`${args} is not valid config`);
+        throw new Error(`${JSON.stringify(args)} is not valid config`);
       }
 
       const config = Object.assign(defaultArguments, args);
@@ -52,7 +52,7 @@ async function getConfig(): Promise<Config | Error> {
     }
   }
 
-  return new Error("No config passed");
+  throw new Error("No config passed");
 }
 
 export { getConfig };

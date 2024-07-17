@@ -11,21 +11,11 @@ function isTransform(transform: unknown): transform is Transform {
     return false;
   }
 
-  if (
-    typeof transform[0][0] === "string" &&
-    typeof transform[0][1] === "string"
-  ) {
+  if (typeof transform[0] === "string" && typeof transform[1] === "string") {
     return true;
   }
 
-  if (
-    typeof transform[0][0] === "function" &&
-    typeof transform[0][1] === "string"
-  ) {
-    return true;
-  }
-
-  return false;
+  return typeof transform[0] === "function" && typeof transform[1] === "string";
 }
 
 export type { Transform };

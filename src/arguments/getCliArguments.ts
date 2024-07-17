@@ -1,6 +1,5 @@
-import { parse } from "ts-command-line-args";
-
 import type { Transform } from "transform/isTransform.js";
+import { parse } from "ts-command-line-args";
 import { getAbsolutePath } from "./getAbsolutePath.js";
 import { getTransformDetailsFromStringArgument } from "./getTransformDetailsFromStringArgument.js";
 
@@ -26,7 +25,7 @@ function isInlineArguments(object: object): object is InlineArguments {
 }
 
 function getCliArguments(): Partial<Arguments> {
-  const parsedArguments = parse<Partial<Arguments>>({
+  return parse<Partial<Arguments>>({
     config: { type: getAbsolutePath, optional: true },
     src: { type: getAbsolutePath, optional: true },
     dist: { type: getAbsolutePath, optional: true },
@@ -37,8 +36,6 @@ function getCliArguments(): Partial<Arguments> {
     },
     verbose: { type: Boolean, optional: true },
   });
-
-  return parsedArguments;
 }
 
 export type { ConfigArguments, InlineArguments, Arguments };

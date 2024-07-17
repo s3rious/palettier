@@ -10,6 +10,10 @@ function generateCssFile(
     return `${accumulator}\n  ${key}: ${value};`;
   }, "");
 
+  if (content.length < 1) {
+    return "";
+  }
+
   if (typeof resultClassName !== "string") {
     return content
       .split("\n")
@@ -18,7 +22,7 @@ function generateCssFile(
       .join("\n");
   }
 
-  if (!/^:/.test(resultClassName)) {
+  if (!/^:/.test(resultClassName) && !/^\./.test(resultClassName)) {
     resultClassName = `.${resultClassName}`;
   }
 

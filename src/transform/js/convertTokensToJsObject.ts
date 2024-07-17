@@ -1,7 +1,6 @@
 import { inspect } from "node:util";
 import type { Tokens } from "../../tokens/isTokens.js";
 import {
-  type JsExportType,
   type JsExportTypeValue,
   isJsExportType,
   jsExportTypeMap,
