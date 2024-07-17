@@ -1,6 +1,6 @@
 {
   "name": "palettier",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "author": "s3rious a.k.a Leonid Semenov <canismajor@kaschenka.ru>",
   "license": "MIT",
@@ -53,7 +53,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bin": {
-    "palettier": "./bin/palettier"
+    "palettier": "bin/palettier"
   },
   "files": ["bin/**/*", "lib/**/*"]
 }
